@@ -1,12 +1,16 @@
 import React , {Component} from 'react';
 import Status from '../Status/Status';
+import './Game.css'
 
 class Game extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            player : null
+            player : null,
+            winner: null,
+            noOfMoves: 0,
+            board: Array(9).fill(null)
         }
     }
 
@@ -16,8 +20,19 @@ class Game extends Component {
     
     resetGame(e) {
 		this.setState({
-			player: null,
+            player: null,
+            winner: null,
+            noOfMoves: 0,
+            board: Array(9).fill(null)
 		});
+    }
+    
+    renderBoxes() {
+		return this.state.board.map((box, index) => (
+			<div className="box" key={index} onClick={() => this.handleClick(index)}>
+				{box}{' '}
+			</div>
+		));
 	}
 
     render(){
@@ -29,8 +44,10 @@ class Game extends Component {
                     resetGame={(e) => {
 						this.resetGame(e);
 					}}
-                    player={this.state.player} />
-                <h4>Board </h4>
+                    winner={this.state.winner}
+					player={this.state.player}
+					moves={this.state.noOfMoves} />
+                <div className="board">{this.renderBoxes()}</div>
             </div>
         );
     }

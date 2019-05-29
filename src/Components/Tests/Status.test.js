@@ -43,5 +43,39 @@ describe('<Status />', () => {
 		let spy = jest.spyOn(wrapper.instance(), 'handleResetClick');
 		wrapper.find('input.button').simulate('click');
 		expect(spy).toHaveBeenCalled();
-	});
+    });
+    
+    it('checks if the Status element Shows the correct status when X is winner', () => {
+		let wrapper = shallow(
+			<Status
+				winner="X"
+				player="O"
+				moves="5"
+				setPlayer={(e) => {
+					handlesetPlayer(e);
+				}}
+				resetGame={(e) => {
+					handleresetGame(e);
+				}}
+			/>
+		);
+		expect(wrapper.text()).toMatch('Winner is X');
+    });
+    
+    it('checks if the Status element Shows the correct status when match is draw', () => {
+		let wrapper = shallow(
+			<Status
+				player="O"
+				moves={9}
+				setPlayer={(e) => {
+					handlesetPlayer(e);
+				}}
+				resetGame={(e) => {
+					handleresetGame(e);
+				}}
+			/>
+		);
+		expect(wrapper.text()).toMatch('Match is a Draw');
+    });
+    
 });

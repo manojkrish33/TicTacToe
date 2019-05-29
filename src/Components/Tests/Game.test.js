@@ -30,9 +30,26 @@ describe('<Game />', () => {
     it('Tests if reset function is resetting the state values', () => {
 		let wrapper = shallow(<Game />);
 		wrapper.setState({
-			player: 'X'
+            player: 'X',
+            winner: 'O',
+            noOfMoves: 8
 		});
 		wrapper.instance().resetGame();
 		expect(wrapper.instance().state.player).toEqual(null);
+		expect(wrapper.instance().state.winner).toEqual(null);
+		expect(wrapper.instance().state.noOfMoves).toEqual(0);
+    });
+    
+    it('Tests if resetGame is being called when reset button is clicked', () => {
+		let wrapper = mount(<Game />);
+		const spy = jest.spyOn(wrapper.instance(), 'resetGame');
+		wrapper.setState({
+			player: 'O',
+			winner: null,
+			noOfMoves: 2
+		});
+		wrapper.find('input.button').simulate('click');
+		expect(spy).toHaveBeenCalled();
+		wrapper.unmount();
 	});
 });
