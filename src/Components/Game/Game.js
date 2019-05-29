@@ -12,6 +12,12 @@ class Game extends Component {
 
     setPlayer(player) {
 		this.setState({ player });
+    }
+    
+    resetGame(e) {
+		this.setState({
+			player: null,
+		});
 	}
 
     render(){
@@ -19,7 +25,11 @@ class Game extends Component {
             <div>
                 <Status setPlayer={(e) => {
 						this.setPlayer(e);
-					}} />
+                    }}
+                    resetGame={(e) => {
+						this.resetGame(e);
+					}}
+                    player={this.state.player} />
                 <h4>Board </h4>
             </div>
         );

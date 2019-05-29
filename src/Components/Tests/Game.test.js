@@ -25,5 +25,14 @@ describe('<Game />', () => {
 		wrapper.find('input.button').simulate('submit', mockEvent);
 		expect(spy).toHaveBeenCalled();
 		wrapper.unmount();
+    });
+    
+    it('Tests if reset function is resetting the state values', () => {
+		let wrapper = shallow(<Game />);
+		wrapper.setState({
+			player: 'X'
+		});
+		wrapper.instance().resetGame();
+		expect(wrapper.instance().state.player).toEqual(null);
 	});
 });
