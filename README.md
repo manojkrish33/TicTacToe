@@ -37,3 +37,21 @@ Navigate to root directory where the package.json is present and run the followi
 ```bash
 npm test -- --coverage
 ```
+
+## This App consists of 
+
+
+### _Header Component
+   This will loading the header component of the application
+   
+### _Game Component
+   This will have the functionality to load the game and the actions performed in the game.
+
+### _Status Component
+   This will have functionality related to the status of the game like Radio button to select the first player (X or O)/ Next Player / Winner / Match is a Draw.
+   
+### _ChoosePlayer Component
+   This will have functionality to select the first player by selecting one of the radio button and submitting the form.
+   
+### _Player Component
+   This will have functionality to show a Player with name and a clickable Radio button .
