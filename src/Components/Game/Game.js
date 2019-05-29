@@ -1,11 +1,25 @@
 import React , {Component} from 'react';
+import Status from '../Status/Status';
 
 class Game extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            player : null
+        }
+    }
+
+    setPlayer(player) {
+		this.setState({ player });
+	}
 
     render(){
         return(
             <div>
-                <h4>Status </h4>
+                <Status setPlayer={(e) => {
+						this.setPlayer(e);
+					}} />
                 <h4>Board </h4>
             </div>
         );
