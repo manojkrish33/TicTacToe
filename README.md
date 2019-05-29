@@ -21,3 +21,19 @@ Navigate to root directory where the package.json is present and run the followi
 ```bash
 npm start
 ```
+Application will start and it will open in the default browser, if it fails to open use the [link](http://localhost:3000/).
+
+## Test Application
+
+Navigate to root directory where the package.json is present and run the following command to check the unit testing results.
+
+```bash
+npm test
+```
+## Test Coverage
+
+Navigate to root directory where the package.json is present and run the following command to check the Test Coverage for the application.
+
+```bash
+npm test -- --coverage
+```
