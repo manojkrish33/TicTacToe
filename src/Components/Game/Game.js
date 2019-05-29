@@ -5,7 +5,7 @@ class Game extends Component {
     render(){
         return(
             <div>
-                <h4>Staus </h4>
+                <h4>Status </h4>
                 <h4>Board </h4>
             </div>
         );
